@@ -44,10 +44,11 @@ def cosx():
 
 def dollar(v):
     global screen
+    doller_value = 122 # doller Value In BDT 
     try:
         if screen:
             bdt_amount = float(screen)
-            usd_amount = round(bdt_amount / 120, 2)
+            usd_amount = round(bdt_amount / doller_value, 2)
             result.configure(text=f"{usd_amount} USD")
     except:
         result.configure(text="Error")
@@ -88,29 +89,18 @@ result.grid(row=0, column=0, columnspan=4, padx=10, pady=10, sticky="ew")
 
 buttons = [
     ("C",   1, 0, "#ff6600", clear),
-    ("del", 1, 1, "#ff6400", delet),
-    ("sin", 1, 2, "#ff6400", sinx),
-    ("cos", 1, 3, "#ff6400", cosx),
+    ("del", 1, 1, "#ff6400", delet),("sin", 1, 2, "#ff6400", sinx),("cos", 1, 3, "#ff6400", cosx),
+    ("7", 2, 0, "#3b3b3b", lambda: show("7")),("8", 2, 1, "#3b3b3b", lambda: show("8")),
+    ("9", 2, 2, "#3b3b3b", lambda: show("9")),("/", 2, 3, "#3b3b3b", lambda: show("/")),
 
-    ("7", 2, 0, "#3b3b3b", lambda: show("7")),
-    ("8", 2, 1, "#3b3b3b", lambda: show("8")),
-    ("9", 2, 2, "#3b3b3b", lambda: show("9")),
-    ("/", 2, 3, "#3b3b3b", lambda: show("/")),
+    ("4", 3, 0, "#3b3b3b", lambda: show("4")),("5", 3, 1, "#3b3b3b", lambda: show("5")),
+    ("6", 3, 2, "#3b3b3b", lambda: show("6")),("x", 3, 3, "#3b3b3b", lambda: show("*")),
+    
+    ("1", 4, 0, "#3b3b3b", lambda: show("1")),("2", 4, 1, "#3b3b3b", lambda: show("2")),
+    ("3", 4, 2, "#3b3b3b", lambda: show("3")),("-", 4, 3, "#3b3b3b", lambda: show("-")),
 
-    ("4", 3, 0, "#3b3b3b", lambda: show("4")),
-    ("5", 3, 1, "#3b3b3b", lambda: show("5")),
-    ("6", 3, 2, "#3b3b3b", lambda: show("6")),
-    ("x", 3, 3, "#3b3b3b", lambda: show("*")),
-
-    ("1", 4, 0, "#3b3b3b", lambda: show("1")),
-    ("2", 4, 1, "#3b3b3b", lambda: show("2")),
-    ("3", 4, 2, "#3b3b3b", lambda: show("3")),
-    ("-", 4, 3, "#3b3b3b", lambda: show("-")),
-
-    ("0", 5, 0, "#3b3b3b", lambda: show("0")),
-    (".", 5, 1, "#3b3b3b", lambda: show(".")),
-    ("+", 5, 2, "#3b3b3b", lambda: show("+")),
-    ("=", 5, 3, "#0042ff", calculate),
+    ("0", 5, 0, "#3b3b3b", lambda: show("0")),(".", 5, 1, "#3b3b3b", lambda: show(".")),
+    ("+", 5, 2, "#3b3b3b", lambda: show("+")),("=", 5, 3, "#0042ff", calculate),
 ]
 
 for text, row, col, color, command in buttons:
@@ -126,3 +116,4 @@ for text, row, col, color, command in buttons:
     ).grid(row=row, column=col, padx=5, pady=5)
 
 root.mainloop()
+
